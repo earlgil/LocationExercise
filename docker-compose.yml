@@ -1,0 +1,17 @@
+version: "3"  
+
+services:
+  web:
+    build: ./web
+    ports:
+      - "5000:5000"
+    links:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: postgis/postgis
+    ports:
+      - "5432:5432"
+
